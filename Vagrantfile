@@ -85,19 +85,5 @@ Vagrant.configure("2") do |config|
   #   apt-get update
   #   apt-get install -y apache2
   SHELL
-  config.vm.provision "shell", inline: <<-SHELL
-	sudo rpm -ivh /vagrant/jdk-8u201-linux-x64.rpm
-	
-	cp /vagrant/apache-storm-1.2.2.tar.gz .
-	tar vfxz apache-storm-1.2.2.tar.gz
-	
-	cp /vagrant/zookeeper-3.4.13.tar.gz .
-	tar vfxz zookeeper-3.4.13.tar.gz
-	
-	sudo chown vagrant:vagrant -R .
-	
-    cp zookeeper-3.4.13/conf/zoo_sample.cfg zookeeper-3.4.13/conf/zoo.cfg
-  #   apt-get update
-  #   apt-get install -y apache2
-  SHELL
+  
 end

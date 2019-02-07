@@ -1,8 +1,11 @@
+
 name: PRIMER
+
 config:
   demo.file.in  : C:\\Dev\\storm-primer\\in.txt
   demo.file.out : C:\\Dev\\storm-primer\\out.txt
   topology.stats.sample.rate: 1.0
+
 spouts:
   - id: spout1
     className: kfpi.storm.primer.SpoutPrimer

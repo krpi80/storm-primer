@@ -8,7 +8,6 @@ import org.apache.storm.tuple.Fields;
 import org.apache.storm.tuple.Values;
 import org.apache.storm.utils.Utils;
 import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -26,10 +25,13 @@ public class SpoutPrimer extends BaseRichSpout {
     private RandomAccessFile file;
 
     @Override
-    public void open(Map conf, TopologyContext context, SpoutOutputCollector collector) {
+    public void open(Map conf,
+                     TopologyContext context,
+                     SpoutOutputCollector collector) {
         this.collector = collector;
         try {
-            final String filename = String.valueOf(Objects.requireNonNull(conf.get("demo.file.in")));
+            final String filename = String.valueOf(Objects.requireNonNull(
+                    conf.get("demo.file.in")));
             file = new RandomAccessFile(filename, "r");
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
