@@ -1,0 +1,18 @@
+name: DEMO
+config:
+  demo.file.in  : C:\\Dev\\storm-primer\\in.txt
+  demo.file.out : C:\\Dev\\storm-primer\\out.txt
+spouts:
+  - id: spout1
+    className: kfpi.storm.primer.SpoutPrimer
+
+bolts:
+  - id: bolt1
+    className: kfpi.storm.primer.BoltPrimer
+
+streams:
+  - name: s1
+    from: spout1
+    to  : bolt1
+    grouping:
+      type: SHUFFLE

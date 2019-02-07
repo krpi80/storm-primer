@@ -1,0 +1,29 @@
+plugins {
+    id 'java-library'
+}
+
+repositories {
+    jcenter()
+}
+
+configurations {
+    stormProvided
+}
+
+configurations.compile.extendsFrom(configurations.stormProvided)
+
+
+dependencies {
+    stormProvided 'org.apache.storm:storm-core:1.2.2'
+    compile 'org.apache.storm:flux-core:1.2.2'
+    compile 'org.apache.storm:flux-wrappers:1.2.2'
+    testCompile 'junit:junit:4.12'
+}
+
+jar {
+    from {
+        (configurations.compile - configurations.stormProvided)
+                .collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
+

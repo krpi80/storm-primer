@@ -1,0 +1,12 @@
+# Ignore Gradle project-specific cache directory
+.gradle
+
+# Ignore Gradle build output directory
+build
+zookeeper-3.4.13.tar.gz  
+apache-storm-1.2.2.tar.gz  
+jdk-8u201-linux-x64.rpm  
+out  
+.idea  
+.vagrant  
+logs  
